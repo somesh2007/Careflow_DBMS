@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareFlow — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">⚕</span>
+        <span class="brand-name">CareFlow</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-link active" data-page="dashboard">
+          <span class="nav-icon">▦</span> Dashboard
+        </a>
+        <a href="doctors.html" class="nav-link" data-page="doctors">
+          <span class="nav-icon">⚕</span> Doctors
+        </a>
+        <a href="patients.html" class="nav-link" data-page="patients">
+          <span class="nav-icon">♡</span> Patients
+        </a>
+        <a href="appointments.html" class="nav-link" data-page="appointments">
+          <span class="nav-icon">◷</span> Appointments
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="admin-info">
+          <div class="admin-avatar">AD</div>
+          <div>
+            <div class="admin-name" id="adminName">Admin</div>
+            <div class="admin-role">Hospital Admin</div>
+          </div>
+        </div>
+        <button class="btn-logout" id="logoutBtn" title="Logout">⏻</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h2 class="page-title">Dashboard</h2>
+          <p class="page-sub">Overview of hospital activities and metrics.</p>
+        </div>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-icon" style="color:#3b82f6">⚕</div>
+          <div class="metric-label">Total Doctors</div>
+          <div class="metric-value" id="totalDoctors">—</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon" style="color:#8b5cf6">♡</div>
+          <div class="metric-label">Total Patients</div>
+          <div class="metric-value" id="totalPatients">—</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon" style="color:#f59e0b">◷</div>
+          <div class="metric-label">Upcoming Appts</div>
+          <div class="metric-value" id="upcoming">—</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon" style="color:#10b981">✓</div>
+          <div class="metric-label">Completed</div>
+          <div class="metric-value" id="completed">—</div>
+        </div>
+      </div>
+
+      <div class="dashboard-bottom">
+        <!-- Bar Chart -->
+        <div class="card chart-card">
+          <h3 class="card-title">Appointments by Doctor</h3>
+          <p class="card-sub">Number of appointments scheduled per doctor</p>
+          <div class="bar-chart" id="barChart"></div>
+        </div>
+
+        <!-- Recent Appointments -->
+        <div class="card recent-card">
+          <h3 class="card-title">Recent Appointments</h3>
+          <p class="card-sub">Latest scheduled visits</p>
+          <div id="recentList" class="recent-list"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

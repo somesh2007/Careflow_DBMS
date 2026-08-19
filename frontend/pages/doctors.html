@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareFlow — Doctors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">⚕</span>
+        <span class="brand-name">CareFlow</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-link">▦ Dashboard</a>
+        <a href="doctors.html"  class="nav-link active">⚕ Doctors</a>
+        <a href="patients.html" class="nav-link">♡ Patients</a>
+        <a href="appointments.html" class="nav-link">◷ Appointments</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="admin-info">
+          <div class="admin-avatar">AD</div>
+          <div>
+            <div class="admin-name" id="adminName">Admin</div>
+            <div class="admin-role">Hospital Admin</div>
+          </div>
+        </div>
+        <button class="btn-logout" id="logoutBtn">⏻</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h2 class="page-title">Doctors</h2>
+          <p class="page-sub">Manage hospital medical staff.</p>
+        </div>
+        <button class="btn btn-primary" id="addDoctorBtn">+ Add Doctor</button>
+      </div>
+
+      <div class="card">
+        <div class="table-toolbar">
+          <input type="text" class="search-input" id="searchInput" placeholder="Search doctors..." />
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="doctorsTable">
+            <thead>
+              <tr>
+                <th>Doctor</th>
+                <th>Specialization</th>
+                <th>Contact</th>
+                <th>Room</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="doctorsTbody">
+              <tr><td colspan="5" class="loading-cell">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Doctor Modal -->
+  <div class="modal-overlay hidden" id="doctorModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add New Doctor</h3>
+        <button class="modal-close" id="closeModal">✕</button>
+      </div>
+      <p class="modal-sub" id="modalSub">Enter the doctor's details below.</p>
+      <form id="doctorForm">
+        <input type="hidden" id="doctorId" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="docName" placeholder="Dr. Jane Doe" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Specialization</label>
+            <input type="text" id="docSpec" placeholder="Cardiology" required />
+          </div>
+        </div>
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" id="docPhone" placeholder="+1 234 567 8900" required />
+          </div>
+          <div class="form-group">
+            <label>Room Number</label>
+            <input type="text" id="docRoom" placeholder="101A" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="docEmail" placeholder="jane.doe@hospital.com" required />
+          </div>
+        </div>
+        <div id="formError" class="error-msg hidden"></div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Create Doctor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/doctors.js"></script>
+</body>
+</html>
